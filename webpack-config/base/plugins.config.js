@@ -7,11 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 let plugins = []
 
 // 清空buildDir
-plugins.push(new CleanWebpackPlugin([dirs.buildDir], {
-    root: dirs.rootDir,
-    verbose: false,          // 控制台输出日志
-    dry: false
-}))
+plugins.push(new CleanWebpackPlugin([dirs.buildDir]))
 
 // 生成HTML页面
 pages.forEach((page) => {
