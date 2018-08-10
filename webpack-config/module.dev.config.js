@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 moduleConfig.rules.push(
     {
-        test: /\.less$/,
+        test: /\.scss$/,
         include: dirs.srcDir,
         loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
@@ -18,7 +18,7 @@ moduleConfig.rules.push(
                     }
                 },
                 {
-                    loader: 'less-loader',
+                    loader: 'sass-loader',
                 }
             ]
         })
