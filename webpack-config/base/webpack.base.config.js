@@ -8,12 +8,12 @@ let entries = {}
 pages.forEach((page) => {
     if (page != 'main') {
         entries[page] = path.resolve(dirs.pagesDir, page + '/index')
-        console.log(chalk.blue(page + ':' + entries[page]))
+        // console.log(chalk.blue(page + ':' + entries[page]))
     }
 });
 
 entries['main'] = path.resolve(dirs.srcDir, 'index')
-console.log(chalk.blue('main:' + entries['main']))
+// console.log(chalk.blue('main:' + entries['main']))
 
 module.exports = {
     entry: entries,

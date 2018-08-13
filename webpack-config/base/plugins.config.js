@@ -13,7 +13,7 @@ let plugins = []
 //     verbose: true
 // }))
 
-console.log(chalk.blue(pages))
+// console.log(chalk.blue(pages))
 
 // 生成HTML页面
 pages.forEach((page) => {
