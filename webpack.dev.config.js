@@ -10,9 +10,15 @@ const config = {
     module: {
         rules: [
             {
+                enforce: 'pre',
                 test: /\.js$/,
-                use: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
             },
             {
                 test: /\.scss$/,
@@ -32,7 +38,7 @@ const config = {
                     ]
                 })
             }
-        
+
         ]
     },
     plugins: plugins,

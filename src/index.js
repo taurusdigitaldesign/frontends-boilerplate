@@ -1,3 +1,2 @@
-
-let name = 'ziguang'
-console.log(`hello, ${name}`)
+let name = "ziguang";
+window.console.log(`hello, ${name}`);
