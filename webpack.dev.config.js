@@ -41,6 +41,17 @@ const config = {
 
         ]
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'common',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
     plugins: plugins,
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

@@ -30,7 +30,7 @@ pages.forEach((page) => {
     const htmlPlugin = new HtmlWebpackPlugin({
         filename: _filename,
         template: _template,
-        chunks: [page],     // 每个页面自己的JS文件，以及公共JS（还没加）
+        chunks: ['common', page],     // 每个页面自己的JS文件，以及公共JS（还没加）
         // hash: true,      // 为静态资源生成hash值
         xhtml: true,
     });
