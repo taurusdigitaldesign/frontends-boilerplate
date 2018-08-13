@@ -1,7 +1,31 @@
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-    entry: require('./webpack-config/entry.config'),
-    output: require('./webpack-config/output.config'),
-    module: require('./webpack-config/module.prod.config'),
-    plugins: require('./webpack-config/plugins.prod.config')
+    entry: {
+        main: './src/index.js'
+    },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
+            }
+        ]
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            verbose: true
+        })
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        inline: true
+    }
 }
