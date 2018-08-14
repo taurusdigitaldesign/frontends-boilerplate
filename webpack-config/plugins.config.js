@@ -1,17 +1,18 @@
 const path = require('path')
-const dirs = require('./dir-vars.config.js')
-const pages = require('./pages.config.js')
-// const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
+const dirs = require('./base/dir-vars.config.js')
+const pages = require('./base/pages.config.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 const chalk = require('chalk')
 
 let plugins = []
 
-// 清空buildDir
-// plugins.push(new CleanWebpackPlugin(['dist'], {
-//     root: dirs.rootDir,
-//     verbose: true
-// }))
+// 依赖dll
+plugins.push(new webpack.DllReferencePlugin({
+    manifest: require('../vendor/manifest.json'), // 指定manifest.json
+    name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+}))
 
 // console.log(chalk.blue(pages))
 
@@ -36,5 +37,12 @@ pages.forEach((page) => {
     });
     plugins.push(htmlPlugin);
 });
+
+// 拷贝dll.js文件，插入HTML中
+plugins.push(new AddAssetHtmlWebpackPlugin([{
+    filepath: path.resolve(dirs.rootDir, './vendor/*.dll.js'),
+    includeSourcemap: false,
+    publicPath: '/'
+}]))
 
 module.exports = plugins

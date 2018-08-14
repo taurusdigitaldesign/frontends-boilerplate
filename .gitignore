@@ -44,3 +44,7 @@ dist/**/*
 *.DS_Store
 package-lock.json
 manifest\.json
+
+vendor/vendor\.dll\.js
+
+vendor/vendor\.dll\.js\.map
