@@ -41,6 +41,7 @@ pages.forEach((page) => {
 // 拷贝dll.js文件，插入HTML中
 plugins.push(new AddAssetHtmlWebpackPlugin([{
     filepath: path.resolve(dirs.rootDir, './vendor/*.dll.js'),
+    // outputPath: path.resolve(dirs.buildDir, './vendor'),
     includeSourcemap: false,
     publicPath: '/'
 }]))
