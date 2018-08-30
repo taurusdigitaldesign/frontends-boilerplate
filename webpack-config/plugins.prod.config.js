@@ -1,8 +1,7 @@
 const plugins = require('./plugins.base.config');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 
-plugins.push(new ExtractTextPlugin('[name]/style.css'))
+// gzip压缩
 plugins.push(new CompressionPlugin({
     asset: "[path].gz[query]",
     algorithm: "gzip",

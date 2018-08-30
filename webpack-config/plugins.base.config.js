@@ -3,8 +3,8 @@ const webpack = require('webpack')
 const dirs = require('./base/dir-vars.config.js')
 const pages = require('./base/pages.config.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
-const chalk = require('chalk')
 
 let plugins = []
 
@@ -13,8 +13,6 @@ plugins.push(new webpack.DllReferencePlugin({
     manifest: require('../vendor/manifest.json'), // 指定manifest.json
     name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
 }))
-
-// console.log(chalk.blue(pages))
 
 // 生成HTML页面
 pages.forEach((page) => {
@@ -45,5 +43,13 @@ plugins.push(new AddAssetHtmlWebpackPlugin([{
     includeSourcemap: false,
     publicPath: '/'
 }]))
+
+// 独立样式文件
+plugins.push(new ExtractTextPlugin('[name]/style.css'))
+
+
+plugins.push(new webpack.DefinePlugin({
+    'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development')
+}))
 
 module.exports = plugins

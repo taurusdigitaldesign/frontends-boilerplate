@@ -1,7 +1,7 @@
 const path = require('path')
 const base = require('./webpack-config/webpack.base.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const plugins = require('./webpack-config/plugins.dev.config')
+const plugins = require('./webpack-config/plugins.base.config')
 const dirs = require('./webpack-config/base/dir-vars.config');
 
 const config = {
@@ -75,7 +75,8 @@ const config = {
     plugins: plugins,
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        inline: true
+        inline: true,
+        historyApiFallback: true
     }
 };
 
