@@ -17,5 +17,10 @@ module.exports = {
         path: dirs.buildDir,
         filename: '[name]/bundle.js',
         publicPath: '/'
+    },
+    resolve: {
+        alias: {
+            '@': dirs.srcDir
+        }
     }
 }
