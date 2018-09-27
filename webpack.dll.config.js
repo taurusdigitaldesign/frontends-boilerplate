@@ -16,7 +16,8 @@ module.exports = {
     plugins: [
         new webpack.DllPlugin({
             name: 'vendor',
-            path: path.resolve(dirs.rootDir, './vendor/manifest.json')   // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
+            // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
+            path: path.resolve(dirs.rootDir, './vendor/manifest.json')
         }),
       ]
 }

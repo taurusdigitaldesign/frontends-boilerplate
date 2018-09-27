@@ -10,8 +10,10 @@ let plugins = []
 
 // 依赖dll
 plugins.push(new webpack.DllReferencePlugin({
-    manifest: require('../vendor/manifest.json'), // 指定manifest.json
-    name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+    // 指定manifest.json
+    manifest: require('../vendor/manifest.json'),
+    // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+    name: 'vendor'
 }))
 
 // 生成HTML页面
@@ -29,8 +31,10 @@ pages.forEach((page) => {
     const htmlPlugin = new HtmlWebpackPlugin({
         filename: _filename,
         template: _template,
-        chunks: ['common', page],     // 每个页面自己的JS文件，以及公共JS（还没加）
-        // hash: true,      // 为静态资源生成hash值
+        // 每个页面自己的JS文件，以及公共JS（还没加）
+        chunks: ['common', page],
+        // 为静态资源生成hash值
+        // hash: true,
         xhtml: true,
     });
     plugins.push(htmlPlugin);
@@ -40,14 +44,14 @@ pages.forEach((page) => {
 plugins.push(new AddAssetHtmlWebpackPlugin([{
     filepath: path.resolve(dirs.rootDir, './vendor/*.dll.js'),
     // outputPath: path.resolve(dirs.buildDir, './vendor'),
-    includeSourcemap: false,
+    includeSourcemap: true,
     publicPath: '/'
 }]))
 
 // 独立样式文件
 plugins.push(new ExtractTextPlugin('[name]/style.css'))
 
-
+// 多环境变量配置
 plugins.push(new webpack.DefinePlugin({
     'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development')
 }))

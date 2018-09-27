@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
-import UserInfo from './pages/user/info/index'
+import { Login } from '@/components'
 
 render(
-    <UserInfo></UserInfo>,
+    <Login />,
     document.getElementById('root')
 )
