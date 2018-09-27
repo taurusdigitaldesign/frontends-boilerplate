@@ -20,3 +20,8 @@
 * 增加common.scss通用样式，定义各种尺寸和颜色
 * 增加两个简单的辅助工具 utils/Url.js 和 utils/Cookie.js
 * 增加网络请求库axios
+
+### V1.0.2
+
+* 拆分配置，移动端独立分支，master分支为基础版本，后续衍生出移动端分支、多页面分支等
+* 组件Demo：Login
