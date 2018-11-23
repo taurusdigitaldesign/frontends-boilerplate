@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const dirs = require('./webpack-config/base/dir-vars.config')
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         vendor: ['react', 'react-dom']
     },
