@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         vendor: ['react', 'react-dom']
     },
-    devtool: '#source-map',
+    // devtool: '#source-map',
     output: {
         path: path.resolve(dirs.rootDir, 'vendor'),
         filename: '[name].dll.js',
