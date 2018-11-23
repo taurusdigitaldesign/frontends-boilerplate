@@ -5,7 +5,7 @@ const dirs = require('./webpack-config/base/dir-vars.config')
 module.exports = {
     mode: 'production',
     entry: {
-        vendor: ['react', 'react-dom']
+        vendor: ['react', 'react-dom', 'react-router-dom']
     },
     // devtool: '#source-map',
     output: {
