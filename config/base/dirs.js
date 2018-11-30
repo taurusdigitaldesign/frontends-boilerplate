@@ -1,7 +1,6 @@
 const path = require('path')
 
 const dirs = {}
-
 // 文件目录
 dirs.rootDir = path.resolve(__dirname, '../../')
 dirs.srcDir = path.resolve(dirs.rootDir, './src')
