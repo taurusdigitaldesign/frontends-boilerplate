@@ -25,3 +25,10 @@
 
 * 拆分配置，移动端独立分支，master分支为基础版本，后续衍生出移动端分支、多页面分支等
 * 组件Demo：Login
+
+### V1.0.3
+
+* 压缩vendor.all.js的体积，800多K -> 110K
+* vendor.all.js不带sourcemap了
+* vendor.all.js中增加react-router
+* 修复IE下报错：Promise未定义
