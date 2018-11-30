@@ -1,13 +1,15 @@
 const path = require('path')
 
 const dirs = {}
-// 文件目录
-dirs.rootDir = path.resolve(__dirname, '../../')
-dirs.srcDir = path.resolve(dirs.rootDir, './src')
-dirs.pagesDir = path.resolve(dirs.srcDir, './pages')
+// 根目录
+dirs.root = path.resolve(__dirname, '../../')
+// 配置目录
+dirs.config = path.resolve(dirs.root, './config')
+// 源码目录
+dirs.src = path.resolve(dirs.root, './src')
+// 多页面目录
+dirs.pages = path.resolve(dirs.src, './pages')
 // 生成目录
-dirs.buildDir = path.resolve(dirs.rootDir, './dist')
-// 运行目录
-dirs.runDir = path.resolve(dirs.rootDir, './dist')
+dirs.build = path.resolve(dirs.root, './dist')
 
 module.exports = dirs

@@ -6,21 +6,21 @@ let entries = {}
 
 pages.forEach((page) => {
     if (page != 'main') {
-        entries[page] = path.resolve(dirs.pagesDir, page + '/index')
+        entries[page] = path.resolve(dirs.pages, page + '/index')
     }
 });
-entries['main'] = path.resolve(dirs.srcDir, 'index')
+entries['main'] = path.resolve(dirs.src, 'index')
 
 module.exports = {
     entry: entries,
     output: {
-        path: dirs.buildDir,
+        path: dirs.build,
         filename: '[name]/bundle.js',
         publicPath: '/'
     },
     resolve: {
         alias: {
-            '@': dirs.srcDir
+            '@': dirs.src
         }
     }
 }

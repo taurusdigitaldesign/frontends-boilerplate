@@ -22,10 +22,10 @@ pages.forEach((page) => {
 
     if (page != 'main') {
         _filename = `${page}/index.html`
-        _template = path.resolve(dirs.pagesDir, `./${page}/index.html`)
+        _template = path.resolve(dirs.pages, `./${page}/index.html`)
     } else {
         _filename = 'index.html'
-        _template = path.resolve(dirs.srcDir, `./index.html`)
+        _template = path.resolve(dirs.src, `./index.html`)
     }
 
     const htmlPlugin = new HtmlWebpackPlugin({
@@ -42,8 +42,8 @@ pages.forEach((page) => {
 
 // 拷贝dll.js文件，插入HTML中
 plugins.push(new AddAssetHtmlWebpackPlugin([{
-    filepath: path.resolve(dirs.rootDir, './vendor/*.dll.js'),
-    // outputPath: path.resolve(dirs.buildDir, './vendor'),
+    filepath: path.resolve(dirs.root, './vendor/*.dll.js'),
+    // outputPath: path.resolve(dirs.build, './vendor'),
     includeSourcemap: false,
     publicPath: '/'
 }]))
@@ -56,4 +56,5 @@ plugins.push(new webpack.DefinePlugin({
     'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development')
 }))
 
+console.log(process.env.CUR_ENV)
 module.exports = plugins

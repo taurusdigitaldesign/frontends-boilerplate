@@ -2,7 +2,7 @@ const glob = require('glob');
 const dirs = require('./dirs.js');
 
 const options = {
-  cwd: dirs.pagesDir,   // 在pages目录里找
+  cwd: dirs.pages,   // 在pages目录里找
   sync: true,           // 这里不能异步，只能同步
 };
 

@@ -31,7 +31,7 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                include: dirs.srcDir,
+                include: dirs.src,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [

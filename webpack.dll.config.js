@@ -9,7 +9,7 @@ module.exports = {
     },
     // devtool: '#source-map',
     output: {
-        path: path.resolve(dirs.rootDir, 'vendor'),
+        path: path.resolve(dirs.root, 'vendor'),
         filename: '[name].dll.js',
         library: '[name]'
     },
@@ -17,7 +17,7 @@ module.exports = {
         new webpack.DllPlugin({
             name: 'vendor',
             // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
-            path: path.resolve(dirs.rootDir, './vendor/manifest.json')
+            path: path.resolve(dirs.root, './vendor/manifest.json')
         }),
       ]
 }
