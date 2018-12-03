@@ -1,4 +1,52 @@
-# Web前端开发脚手架(frontends-boilerplate)
+# 前端开发脚手架(frontends-boilerplate)
+
+## 文件结构
+
+```
+├─ .babelrc
+├─ .eslintrc
+├─ .env-cmdrc
+├─ package.json
+├─ webpack.config.js 
+├─ webpack.dev.config.js
+├─ webpack.dll.config.js
+├─ config   
+|   ├─ base 
+|   |   ├─ dirs.js 
+|   |   └─ pages.js 
+|   ├─ plugins.base.config.js 
+|   ├─ plugins.prod.config.js 
+|   └─ webpack.base.config.js
+├─ vendor
+|   ├─ manifest.json
+|   └─ vender.dll.js
+└─ src
+    ├─ layouts
+    ├─ routes
+    ├─ utils
+    ├─ dao  
+    ├─ assets
+    |   ├─ config 各种配置文件，如：菜单配置、数据文件等
+    |   |   ├─ menu.json
+    |   |   └─ data.json
+    |   ├─ iconfont
+    |   ├─ images
+    |   └─ style  
+    |       └─ common.scss 
+    ├─ components
+    │   └─ menu 
+    │       ├─ index.js
+    |       └─ style.scss
+    ├─ pages
+    │   └─ user 
+    │       └─ detail 
+    │           ├─ index.html
+    |           ├─ index.js
+    |           └─ style.scss
+    ├─ index.html
+    ├─ index.js
+    └─ style.scss
+```
 
 ## 版本履历
 

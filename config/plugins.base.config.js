@@ -56,5 +56,4 @@ plugins.push(new webpack.DefinePlugin({
     'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development')
 }))
 
-console.log(process.env.CUR_ENV)
 module.exports = plugins
