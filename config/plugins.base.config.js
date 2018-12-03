@@ -53,7 +53,8 @@ plugins.push(new ExtractTextPlugin('[name]/style.css'))
 
 // 多环境变量配置
 plugins.push(new webpack.DefinePlugin({
-    'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development')
+    'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development'),
+    'process.env.apiUrl': JSON.stringify(process.env.apiUrl || '')
 }))
 
 module.exports = plugins

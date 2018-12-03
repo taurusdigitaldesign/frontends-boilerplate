@@ -39,7 +39,7 @@
     |       └─ style.scss
     ├─ pages
     │   └─ user 
-    │       └─ detail 
+    │       └─ info 
     │           ├─ index.html
     |           ├─ index.js
     |           └─ style.scss

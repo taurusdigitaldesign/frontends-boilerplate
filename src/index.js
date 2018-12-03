@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import 'babel-polyfill'
-import { Login } from '@/components'
+import { Header } from '@/components'
 
 render(
-    <Login />,
+    <Header />,
     document.getElementById('root')
 )
