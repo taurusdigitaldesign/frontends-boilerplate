@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 const dirs = require('./base/dirs.js')
@@ -23,6 +24,7 @@ pages.forEach((page) => {
     if (page != 'main') {
         _filename = `${page}/index.html`
         _template = path.resolve(dirs.pages, `./${page}/index.html`)
+        _template = fs.existsSync(_template) ? _template : path.resolve(dirs.pages, './common.html')
     } else {
         _filename = 'index.html'
         _template = path.resolve(dirs.src, `./index.html`)
@@ -35,7 +37,7 @@ pages.forEach((page) => {
         chunks: ['common', page],
         // 为静态资源生成hash值
         // hash: true,
-        xhtml: true,
+        xhtml: true
     });
     plugins.push(htmlPlugin);
 });
