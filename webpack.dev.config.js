@@ -2,7 +2,7 @@ const path = require('path')
 const base = require('./config/webpack.base.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const plugins = require('./config/plugins.base.config')
-const dirs = require('./config/base/dirs');
+const dirs = require('./config/base/dirs.config');
 
 const config = {
     ...base,

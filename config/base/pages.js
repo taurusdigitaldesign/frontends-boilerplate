@@ -1,5 +1,5 @@
 const glob = require('glob');
-const dirs = require('./dirs.js');
+const dirs = require('./dirs.config.js');
 
 const options = {
   cwd: dirs.pages,      // 在pages目录里找
