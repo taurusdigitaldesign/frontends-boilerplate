@@ -1,5 +1,5 @@
 const path = require('path')
-const dirs = require('./base/dirs.config.js')
+const dirs = require('./base/dirs.js')
 const pages = require('./base/pages.js')
 
 let entries = {}
