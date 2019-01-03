@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const dirs = require('./config/base/dirs.config')
+const dirs = require('./config/base/dirs')
 
 module.exports = {
     mode: 'production',

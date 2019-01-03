@@ -79,4 +79,10 @@
 * 压缩vendor.all.js的体积，800多K -> 110K
 * vendor.all.js不带sourcemap了
 * vendor.all.js中增加react-router
-* 修复IE下报错：Promise未定义
+* 修复IE下报错：Promise未定义（babel-polyfill）
+
+### V1.0.5
+
+* 升级React版本到16.7
+* 升级Babel版本到7
+* 修改目录结构

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import 'babel-polyfill'
+import '@babel/polyfill'
 import { Header } from '@/components'
 
 render(
