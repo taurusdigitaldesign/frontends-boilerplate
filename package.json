@@ -14,10 +14,10 @@
     "clean:dist": "rimraf ./dist",
     "clean:dll": "rimraf ./vendor",
     "build:dll": "webpack --config ./webpack.dll.config.js",
-    "build:dev": "webpack --config ./webpack.dev.config.js --env dev",
-    "build": "webpack --config ./webpack.config.js --env production",
-    "mock": "webpack-dev-server --hot --inline --config ./webpack.dev.config.js --env mock",
-    "dev": "webpack-dev-server --hot --inline --config ./webpack.dev.config.js --env dev"
+    "build:dev": "webpack --env dev",
+    "build": "webpack --env production",
+    "mock": "webpack-dev-server --hot --inline --env mock",
+    "dev": "webpack-dev-server --hot --inline --env dev"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

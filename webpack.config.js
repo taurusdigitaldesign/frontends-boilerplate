@@ -3,6 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const plugins = require('./config/plugins.prod.config')
 const dirs = require('./config/base/dirs');
 
+const argv = require('yargs').argv;
+const devConfig = require('./config/webpack.dev.config');
+
 const config = {
     ...base,
     mode: 'production',
@@ -74,4 +77,11 @@ const config = {
     plugins: plugins
 };
 
-module.exports = config
+switch (argv['env']) {
+    case 'dev':
+        module.exports = devConfig;
+        break;
+    default:
+        module.exports = config;
+        break;
+}
