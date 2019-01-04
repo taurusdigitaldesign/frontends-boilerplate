@@ -1,11 +1,13 @@
 const fs = require('fs')
 const path = require('path')
+const yargs = require('yargs');
 const webpack = require('webpack')
 const dirs = require('./base/dirs.js')
 const pages = require('./base/pages.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
+const envVariables = require('./env-variables');
 
 let plugins = []
 
@@ -54,9 +56,10 @@ plugins.push(new AddAssetHtmlWebpackPlugin([{
 plugins.push(new ExtractTextPlugin('[name]/style.css'))
 
 // 多环境变量配置
-plugins.push(new webpack.DefinePlugin({
-    'process.env.CUR_ENV': JSON.stringify(process.env.CUR_ENV || 'development'),
-    'process.env.apiUrl': JSON.stringify(process.env.apiUrl || '')
-}))
+let variables = {};
+Object.keys(envVariables[yargs.argv.env]).map(key => {
+    variables[`process.env.${key}`] = JSON.stringify(envVariables[yargs.argv.env][key]);
+});
+plugins.push(new webpack.DefinePlugin(variables))
 
 module.exports = plugins
