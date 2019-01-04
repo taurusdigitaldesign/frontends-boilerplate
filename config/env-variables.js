@@ -3,7 +3,7 @@ const envVariables = {
         'CUR_ENV': "mock",
         'apiUrl': "http://rap2api.taobao.org/app/mock/83621/"
     },
-    'development': {
+    'dev': {
         'CUR_ENV': 'development',
         'apiUrl': 'http://rap2api.taobao.org/app/mock/83621/'
     },

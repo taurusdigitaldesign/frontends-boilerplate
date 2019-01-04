@@ -1,5 +1,5 @@
 const fs = require('fs')
-const path = require('path')
+const path = require('path');
 const yargs = require('yargs');
 const webpack = require('webpack')
 const dirs = require('./base/dirs.js')
@@ -60,6 +60,6 @@ let variables = {};
 Object.keys(envVariables[yargs.argv.env]).map(key => {
     variables[`process.env.${key}`] = JSON.stringify(envVariables[yargs.argv.env][key]);
 });
-plugins.push(new webpack.DefinePlugin(variables))
+plugins.push(new webpack.DefinePlugin(variables));
 
 module.exports = plugins
