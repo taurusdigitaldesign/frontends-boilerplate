@@ -1,10 +1,9 @@
-const path = require('path')
-const dirs = require('./base/dirs.js')
-const pages = require('./base/pages.js')
+const path = require('path');
+const dirs = require('./base/dirs.js');
+const pages = require('./base/pages.js');
 
-let entries = {}
-
-pages.forEach((page) => {
+let entries = {};
+pages.map(page => {
     if (page != 'main') {
         entries[page] = path.resolve(dirs.pages, page + '/index')
     }
