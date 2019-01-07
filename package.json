@@ -13,7 +13,7 @@
     "lint": "eslint ./src --ext .js",
     "clean:dist": "rimraf ./dist",
     "clean:dll": "rimraf ./vendor",
-    "build:dll": "webpack --config ./webpack.dll.config.js",
+    "build:dll": "webpack --env dll",
     "build:dev": "webpack --env dev",
     "build": "webpack --env production",
     "mock": "webpack-dev-server --hot --inline --env mock",
