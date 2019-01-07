@@ -1,10 +1,8 @@
-const fs = require('fs')
 const path = require('path');
 const yargs = require('yargs');
 const webpack = require('webpack')
 const dirs = require('./base/dirs.js')
-const pages = require('./base/pages.js')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { htmlPlugins } = require('./base/pages.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 const envVariables = require('./env-variables');
@@ -20,29 +18,7 @@ plugins.push(new webpack.DllReferencePlugin({
 }))
 
 // 生成HTML页面
-pages.forEach((page) => {
-    let _filename = '', _template = ''
-
-    if (page != 'main') {
-        _filename = `${page}/index.html`
-        _template = path.resolve(dirs.pages, `./${page}/index.html`)
-        _template = fs.existsSync(_template) ? _template : path.resolve(dirs.pages, './common.html')
-    } else {
-        _filename = 'index.html'
-        _template = path.resolve(dirs.src, `./index.html`)
-    }
-
-    const htmlPlugin = new HtmlWebpackPlugin({
-        filename: _filename,
-        template: _template,
-        // 每个页面自己的JS文件，以及公共JS（还没加）
-        chunks: ['common', page],
-        // 为静态资源生成hash值
-        // hash: true,
-        xhtml: true
-    });
-    plugins.push(htmlPlugin);
-});
+plugins = plugins.concat(htmlPlugins);
 
 // 拷贝dll.js文件，插入HTML中
 plugins.push(new AddAssetHtmlWebpackPlugin([{

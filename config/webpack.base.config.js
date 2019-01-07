@@ -1,14 +1,5 @@
-const path = require('path');
 const dirs = require('./base/dirs.js');
-const pages = require('./base/pages.js');
-
-let entries = {};
-pages.map(page => {
-    if (page != 'main') {
-        entries[page] = path.resolve(dirs.pages, page + '/index')
-    }
-});
-entries['main'] = path.resolve(dirs.src, 'index')
+const { entries } = require('./base/pages.js');
 
 module.exports = {
     entry: entries,
