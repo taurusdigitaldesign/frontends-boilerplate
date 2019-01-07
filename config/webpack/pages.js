@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path');
 const glob = require('glob');
-const dirs = require('./dirs.js');
+const dirs = require('../base/dirs.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const options = {
@@ -57,5 +57,4 @@ pages.map(page => {
   htmlPlugins.push(plugin);
 });
 
-// 一个数组，形如['index/index', 'index/login', 'alert/index']
 module.exports = { pages, entries, htmlPlugins }; 

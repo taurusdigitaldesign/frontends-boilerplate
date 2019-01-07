@@ -1,13 +1,10 @@
 const dirs = require('./base/dirs.js');
-const { entries } = require('./base/pages.js');
+const { entries } = require('./webpack/pages.js');
+const output = require('./webpack/output');
 
 module.exports = {
     entry: entries,
-    output: {
-        path: dirs.build,
-        filename: '[name]/bundle.js',
-        publicPath: '/'
-    },
+    output: output,
     resolve: {
         alias: {
             '@': dirs.src
