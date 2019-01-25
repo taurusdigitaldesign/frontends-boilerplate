@@ -1,15 +1,22 @@
-const path = require('path')
+const path = require('path');
 
-const dirs = {}
-// 根目录
-dirs.root = path.resolve(__dirname, '../../')
-// 配置目录
-dirs.config = path.resolve(dirs.root, './config')
-// 源码目录
-dirs.src = path.resolve(dirs.root, './src')
-// 多页面目录
-dirs.pages = path.resolve(dirs.src, './pages')
-// 生成目录
-dirs.build = path.resolve(dirs.root, './dist')
+const root = path.resolve(__dirname, '../../');
 
-module.exports = dirs
+const dirs = {
+  // 根目录
+  root: root,
+  // 配置目录
+  config: path.resolve(root, './config'),
+  // 源码目录
+  src: path.resolve(root, './src'),
+  // 多页面目录
+  pages: path.resolve(root, './src/pages'),
+  // vendor
+  lib: path.resolve(root, './lib'),
+  // 生成目录
+  dist: path.resolve(root, './dist'),
+  // modules
+  modules: path.resolve(root, './node_modules')
+}
+
+module.exports = dirs;

@@ -12,8 +12,8 @@
   "scripts": {
     "lint": "eslint ./src --ext .js",
     "clean:dist": "rimraf ./dist",
-    "clean:dll": "rimraf ./vendor",
-    "build:dll": "webpack --env dll",
+    "clean:lib": "rimraf ./lib",
+    "build:lib": "webpack --env lib",
     "build:dev": "webpack --env dev",
     "build": "webpack --env production",
     "mock": "webpack-dev-server --hot --inline --env mock",
@@ -49,12 +49,15 @@
     "url-loader": "^1.1.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5",
-    "yargs": "^12.0.5"
+    "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "antd": "^3.12.4",
     "axios": "^0.18.0",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-router": "^4.3.1"
   }
 }
