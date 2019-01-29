@@ -1,18 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { observer } from "mobx-react";
+import Store from "./store";
+
 import Style from './style.scss';
 
+@observer
 class User extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'hello'
-    };
-  }
+  store = new Store();
 
   render() {
     return (
-      <div className={Style.font}>Test, {this.state.name}</div>
+      <div className={Style.font}>{this.store.name}</div>
     )
   }
 }
