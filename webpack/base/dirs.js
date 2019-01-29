@@ -6,7 +6,7 @@ const dirs = {
   // 根目录
   root: root,
   // 配置目录
-  config: path.resolve(root, './config'),
+  config: path.resolve(root, './webpack'),
   // 源码目录
   src: path.resolve(root, './src'),
   // 多页面目录

@@ -1,6 +1,6 @@
 {
   "name": "frontends-boilerplate",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Web前端开发脚手架",
   "author": "qinzheng_wang",
   "license": "MIT",
@@ -13,11 +13,11 @@
     "lint": "eslint ./src --ext .js",
     "clean:dist": "rimraf ./dist",
     "clean:lib": "rimraf ./lib",
-    "build:lib": "webpack --env lib",
-    "build:dev": "webpack --env dev",
-    "build": "webpack --env production",
-    "mock": "webpack-dev-server --hot --inline --env mock",
-    "dev": "webpack-dev-server --hot --inline --env dev"
+    "build:lib": "npm run clean:lib && webpack --progress --config ./webpack/webpack.lib.conf.js -p",
+    "build:dev": "npm run lint && npm run clean:dist && webpack --progress -p --env=dev",
+    "build": "npm run lint && npm run clean:dist && webpack --progress -p",
+    "mock": "npm run lint && webpack-dev-server --env=mock",
+    "dev": "npm run lint && webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -32,6 +32,7 @@
     "babel-plugin-import": "^1.11.0",
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
     "eslint-loader": "^2.1.0",
@@ -39,6 +40,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "glob": "^7.1.2",
+    "happypack": "^5.0.1",
     "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.3",
@@ -48,8 +50,10 @@
     "style-loader": "^0.22.1",
     "url-loader": "^1.1.0",
     "webpack": "^4.16.5",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
     "antd": "^3.12.4",
