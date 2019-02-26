@@ -6,16 +6,19 @@
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
+      { "legacy": true }
     ],
     [
       "@babel/plugin-proposal-class-properties",
-      {
-        "loose": true
-      }
+      { "loose": true }
     ],
     "@babel/plugin-proposal-object-rest-spread",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true, 
+      }
+    ]
   ]
 }

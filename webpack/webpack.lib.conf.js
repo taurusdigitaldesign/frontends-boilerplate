@@ -16,10 +16,9 @@ module.exports = {
       'mobx',
       'mobx-react',
     ],
-    // 如果将UI打进lib，无法享受antd的按需加载功能
-    // ui: [
-    //   'antd',
-    // ],
+    ui: [
+      'antd',
+    ],
   },
 
   // devtool: '#source-map',

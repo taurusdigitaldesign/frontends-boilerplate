@@ -9,6 +9,7 @@ module.exports = {
     },
     {
       test: /\.(json|conf)$/,
+      exclude: /node_modules/,
       loader: 'json-loader'
     },
     {
