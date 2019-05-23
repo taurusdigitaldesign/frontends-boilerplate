@@ -1,8 +1,8 @@
 {
   "name": "frontends-boilerplate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Web前端开发脚手架",
-  "author": "qinzheng_wang",
+  "author": "紫讯研发部",
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -10,15 +10,23 @@
     "url": "https://gitee.com/ziguang_burchin/frontends-boilerplate.git"
   },
   "scripts": {
-    "lint": "eslint ./src --ext .js",
-    "clean:dist": "rimraf ./dist",
+    "lint": "node lint.js",
+    "lint:fix": "npm run lint --fix",
     "clean:lib": "rimraf ./lib",
-    "build:lib": "npm run clean:lib && webpack --progress --config ./webpack/webpack.lib.conf.js -p",
-    "build:anal": "npm run lint && npm run clean:dist && webpack --progress -p --anal=1",
-    "build:dev": "npm run lint && npm run clean:dist && webpack --progress -p --env=dev",
-    "build": "npm run lint && npm run clean:dist && webpack --progress -p",
-    "mock": "npm run lint && webpack-dev-server --env=mock",
-    "dev": "npm run lint && webpack-dev-server"
+    "clean:dist": "rimraf ./dist",
+    "predll": "npm run clean:lib",
+    "dll": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
+    "build": "npm run clean:dist && webpack --env=prod",
+    "build:anal": "npm run clean:dist && webpack --anal=1",
+    "build:dev": "npm run clean:dist && webpack --env=dev",
+    "build:test": "npm run clean:dist && webpack --env=test",
+    "build:local": "npm run clean:dist && webpack --env=local",
+    "build:test:cdn": "npm run clean:dist && webpack --env=test --cdn=1",
+    "build:prod:cdn": "npm run clean:dist && webpack --env=prod --cdn=1",
+    "mock": "webpack-dev-server --env=mock",
+    "dev": "webpack-dev-server --env=dev",
+    "pro": "webpack-dev-server --env=prod",
+    "local": "webpack-dev-server --env=local"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
