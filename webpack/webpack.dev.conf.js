@@ -1,11 +1,12 @@
 const os = require('os');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
+const DefaltCSSPlugin = require('./base/css');
+const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const { htmls } = require('./base/pages');
 const base = require('./webpack.base.conf');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const plugins = [];
 htmls.map(html => {
@@ -57,7 +58,9 @@ const config = {
       threadPool: happyPackThreadPool,
       verbose: true,
     }),
-    new ExtractTextPlugin('css/bundle_[name].css'),
+    extractCSS,
+    extractSass,
+    extractLess
   ]),
 
   devServer: {

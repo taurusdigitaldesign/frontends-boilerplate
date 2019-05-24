@@ -2,6 +2,8 @@ const os = require('os');
 const path = require('path');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
+const DefaltCSSPlugin = require('./base/css');
+const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const { htmls } = require('./base/pages');
 const base = require('./webpack.base.conf');
 const HappyPack = require('happypack');
@@ -73,7 +75,9 @@ const config = {
       publicPath: '/js', // 绝对路径：'/js',
       outputPath: './js',
     }]),
-    new ExtractTextPlugin('css/bundle_[name].[chunkhash].min.css'),
+    extractCSS,
+    extractSass,
+    extractLess,
     new ParallelUglifyPlugin({
       uglifyJs: {
         cacgeDir: '.cache/',

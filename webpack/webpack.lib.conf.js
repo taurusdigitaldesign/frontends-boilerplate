@@ -35,6 +35,9 @@ module.exports = {
       name: '[name]_[chunkhash]',
       // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
       path: path.resolve(dirs.lib, './[name].manifest.json')
-    })
+    }),
+    new webpack.BannerPlugin(
+      `This file is created by Super Browser, Last update: ${new Date().toString()}`
+    )
   ]
 };

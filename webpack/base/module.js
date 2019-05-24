@@ -1,4 +1,5 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DefaltCSSPlugin = require('./css');
+const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 
 module.exports = {
   rules: [
@@ -14,7 +15,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract({
+      use: extractCSS.extract({
         fallback: 'style-loader',
         use: [
           'css-loader',
@@ -23,7 +24,7 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
+      use: extractSass.extract({
         fallback: 'style-loader',
         use: [
           'css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]',
@@ -33,7 +34,7 @@ module.exports = {
     },
     {
       test: /\.less$/,
-      use: ExtractTextPlugin.extract({
+      use: extractLess.extract({
         fallback: 'style-loader',
         use: [
           'css-loader',
