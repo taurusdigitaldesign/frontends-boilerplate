@@ -8,7 +8,6 @@ const { htmls } = require('./base/pages');
 const base = require('./webpack.base.conf');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
