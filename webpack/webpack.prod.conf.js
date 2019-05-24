@@ -47,18 +47,6 @@ const config = {
 
   devtool: false,
 
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'common',
-          chunks: 'all'
-        }
-      }
-    }
-  },
-
   plugins: plugins.concat([
     new HappyPack({
       id: 'babel',
