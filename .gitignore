@@ -43,7 +43,9 @@ dist/
 dist/**/*
 *.DS_Store
 package-lock.json
-manifest\.json
+yarn.lock
+yarn-error.log
+# manifest\.json
 
 vendor/vendor\.dll\.js
 

@@ -1,7 +1,7 @@
 {
   "name": "frontends-boilerplate",
   "version": "1.0.7",
-  "description": "Web前端开发脚手架",
+  "description": "前端开发脚手架",
   "author": "紫讯研发部",
   "license": "MIT",
   "main": "index.js",
@@ -9,13 +9,15 @@
     "type": "git",
     "url": "https://gitee.com/ziguang_burchin/frontends-boilerplate.git"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "scripts": {
     "lint": "node lint.js",
     "lint:fix": "npm run lint --fix",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
-    "predll": "npm run clean:lib",
-    "dll": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
+    "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
     "build": "npm run clean:dist && webpack --env=prod",
     "build:anal": "npm run clean:dist && webpack --anal=1",
     "build:dev": "npm run clean:dist && webpack --env=dev",
@@ -48,17 +50,17 @@
     "eslint-plugin-react": "^7.10.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
-    "glob": "^7.1.2",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
     "json-loader": "^0.5.7",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-sass": "^4.9.3",
-    "react-router-dom": "^4.3.1",
-    "rimraf": "^2.6.2",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
     "url-loader": "^1.1.0",
     "webpack": "^4.16.5",
     "webpack-bundle-analyzer": "^3.0.3",
@@ -73,6 +75,6 @@
     "mobx-react": "^5.4.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router": "^4.3.1"
+    "react-router-dom": "^4.3.1"
   }
 }
