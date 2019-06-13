@@ -12,14 +12,12 @@ class User extends React.Component {
 
   render() {
     return (
-      <div className={Style.font}>{this.store.name}
+      <div className={Style.font}>
+        {this.store.name}
         <Button type="primary">aaa</Button>
       </div>
     );
   }
 }
 
-render(
-  <User />,
-  document.getElementById('root')
-);
+render(<User />, document.getElementById('root'));

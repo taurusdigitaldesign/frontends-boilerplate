@@ -4,48 +4,55 @@
 
 ```
 ├─ .babelrc
-├─ .eslintrc
-├─ .env-cmdrc
+├─ .eslintignore
+├─ .eslintrc.js
+├─ .prettierrc
+├─ .stylelintrc
+├─ jsconfig.json
+├─ lint.js
 ├─ package.json
 ├─ webpack.config.js 
-├─ webpack.dev.config.js
-├─ webpack.dll.config.js
-├─ config   
-|   ├─ base 
-|   |   ├─ dirs.js 
+├─ lib
+|   ├─ vender_frame.[chunk].dll.js
+|   ├─ vendor_frame.manifest.dll.json
+|   ├─ vender_ui.[chunk].dll.js
+|   └─ vendor_ui.manifest.dll.json
+├─ webpack
+|   ├─ base
+|   |   ├─ css.js
+|   |   ├─ dirs.js
+|   |   ├─ module.js
 |   |   └─ pages.js 
-|   ├─ plugins.base.config.js 
-|   ├─ plugins.prod.config.js 
-|   └─ webpack.base.config.js
-├─ vendor
-|   ├─ manifest.json
-|   └─ vender.dll.js
+|   ├─ webpack.base.conf.js
+|   ├─ webpack.dev.conf.js
+|   ├─ webpack.lib.conf.js
+|   └─ webpack.prod.config.js
 └─ src
-    ├─ layouts
-    ├─ routes
-    ├─ utils
-    ├─ dao  
-    ├─ assets
-    |   ├─ config 各种配置文件，如：菜单配置、数据文件等
-    |   |   ├─ menu.json
-    |   |   └─ data.json
-    |   ├─ iconfont
+    ├─ .assets
     |   ├─ images
     |   └─ style  
     |       └─ common.scss 
+    ├─ .config
+    |   ├─ api
+    |   ├─ i18n
+    |   ├─ theme
+    |   └─ env.conf
+    ├─ .public
+    ├─ app
+    │   └─ index 
+    │       ├─ tpl.ejs
+    |       ├─ index.jsx
+    |       ├─ store.js
+    |       └─ style.scss
+    ├─ layouts
+    ├─ routes
     ├─ components
     │   └─ menu 
-    │       ├─ index.js
-    |       └─ style.scss
-    ├─ pages
-    │   └─ user 
-    │       └─ info 
-    │           ├─ index.html
-    |           ├─ index.js
-    |           └─ style.scss
-    ├─ index.html
-    ├─ index.js
-    └─ style.scss
+    │       ├─ index.jsx
+    │       ├─ store.js
+    |       └─ style.scss    
+    ├─ stores
+    └─ utils 
 ```
 
 ## 版本履历
@@ -86,3 +93,14 @@
 * 升级React版本到16.7
 * 升级Babel版本到7
 * 修改目录结构
+
+### V1.0.6
+
+* 添加ESLint
+
+### V1.0.7
+
+* 经过项目实践，调整目录结构使更加合理
+* 整理npm script
+* 修复npm build时发生的错误
+* 多页面和单页面不再区分
