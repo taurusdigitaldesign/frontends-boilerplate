@@ -48,6 +48,7 @@
     ├─ routes
     ├─ components
     │   └─ menu 
+    │       ├─ images  
     │       ├─ index.jsx
     │       ├─ store.js
     |       └─ style.scss    
