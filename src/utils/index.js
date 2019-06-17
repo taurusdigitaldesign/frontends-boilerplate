@@ -1,7 +1,4 @@
-import Url from './Url'
-import Cookie from './Cookie'
+import Url from './Url';
+import Cookie from './Cookie';
 
-export {
-    Url,
-    Cookie
-}
+export { Url, Cookie };

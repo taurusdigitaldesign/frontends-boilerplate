@@ -9,7 +9,7 @@ const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [];
-htmls.map(html => {
+htmls.forEach(html => {
   const config = {
     chunks: [html.name],
     chunksSortMode: 'manual',
