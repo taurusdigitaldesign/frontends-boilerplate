@@ -36,7 +36,7 @@ module.exports = {
     "import"
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
     "react/jsx-uses-vars": "error",
     "react/jsx-uses-react": "error",
     // 设置了 setter ，必须相应设置 getter ，反之不必须

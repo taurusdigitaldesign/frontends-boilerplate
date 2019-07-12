@@ -1,5 +1,4 @@
 const path = require('path');
-
 const root = path.resolve(__dirname, '../../');
 
 const dirs = {
@@ -17,6 +16,6 @@ const dirs = {
   dist: path.resolve(root, './dist'),
   // modules
   modules: path.resolve(root, './node_modules')
-}
+};
 
 module.exports = dirs;

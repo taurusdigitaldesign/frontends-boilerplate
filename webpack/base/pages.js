@@ -3,10 +3,10 @@ const path = require('path');
 const glob = require('glob');
 const dirs = require('./dirs');
 
-const JSReg = /([\w-]+)(?=\/index.jsx)/;
+let JSReg = /([\w-]+)(?=\/index.tsx)/;
 
 const htmls = [];
-const entries = glob.sync(path.resolve(dirs.src, './app/**/index.jsx')).reduce((entArr, item) => {
+const entries = glob.sync(path.resolve(dirs.src, './app/**/index.tsx')).reduce((entArr, item) => {
   const name = item.match(JSReg)[1];
 
   // 配置html-webpack-plugin

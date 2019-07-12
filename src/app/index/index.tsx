@@ -13,8 +13,8 @@ class User extends React.Component {
   render() {
     return (
       <div className={Style.font}>
-        {this.store.name}
-        <Button type="primary">aaa</Button>
+        {this.store.logining}
+        <Button type="primary" onClick={this.store.test.bind(this)}>aaa</Button>
       </div>
     );
   }

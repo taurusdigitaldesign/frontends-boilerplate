@@ -1,9 +1,9 @@
 const os = require('os');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
+const { htmls } = require('./base/pages');
 const DefaltCSSPlugin = require('./base/css');
 const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
-const { htmls } = require('./base/pages');
 const base = require('./webpack.base.conf');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,7 +21,7 @@ htmls.forEach(html => {
     minify: {
       removeComments: true,
       collapseWhitespace: true,
-      removeAttributeQuotes: true,
+      removeAttributeQuotes: true
     },
   };
   plugins.push(new HtmlWebpackPlugin(config));
@@ -37,7 +37,7 @@ const config = {
   output: {
     path: dirs.dist,
     publicPath: '/',
-    filename: 'js/bundle_[name].js',
+    filename: 'js/bundle_[name].js'
   },
 
   devtool: '#cheap-module-eval-source-map',
@@ -51,9 +51,9 @@ const config = {
           loader: 'babel-loader',
           options: {
             babelrc: true,
-            cacheDirectory: true,
-          },
-        },
+            cacheDirectory: true
+          }
+        }
       ],
       threadPool: happyPackThreadPool,
       verbose: true,
@@ -68,13 +68,13 @@ const config = {
     inline: true,
     overlay: {
       warnings: true,
-      errors: true,
+      errors: true
     },
     // https: true,
     historyApiFallback: true,
     // historyApiFallback: {}, // 对于多个单页应用需要专门配置
     // contentBase: path.resolve(dirs.src, 'hotDist')
-    contentBase: dirs.dist,
+    contentBase: dirs.dist
   },
 };
 

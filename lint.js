@@ -20,7 +20,7 @@ const exec = function(cmd) {
 // exec(`stylelint "${root}/${src}/**/*.css" ${fix}`);
 exec(`stylelint "${root}/${src}/**/*.scss" ${fix}`);
 // exec(`stylelint "${root}/${src}/**/*.less" ${fix}`);
-exec(`eslint ${fix} --ext .js,.jsx ${root}/${src} `);
+exec(`eslint ${fix} --ext .js,.jsx,.ts,.tsx ${root}/${src} `);
 
 if (error) {
   if (fix) {
