@@ -15,7 +15,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const dllManifestOfVendorFrame = require('../lib/frame.manifest.json');
 
 const plugins = [];
-htmls.map(html => {
+htmls.forEach(html => {
   const config = {
     chunks: [html.name],
     chunksSortMode: 'manual',
