@@ -1,5 +1,5 @@
 const Url = {
-  getQueryString: name => {
+  getQueryString: (name: string) => {
     const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'); // 匹配目标参数
     const result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
     if (result != null) {
