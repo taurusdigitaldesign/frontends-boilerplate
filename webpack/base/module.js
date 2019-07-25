@@ -40,16 +40,19 @@ module.exports = {
         use: ['css-loader']
       })
     },
-    {
+    ['dev', 'local'].indexOf(process.env.npm_lifecycle_event) > -1 ? {
       test: /\.scss$/,
-      use: extractSass.extract({
-        fallback: 'style-loader',
-        use: [
-          'css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]',
-          'sass-loader'
-        ]
-      })
-    },
+      loader: 'style-loader!css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]',
+    } : {
+        test: /\.scss$/,
+        use: extractSass.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]',
+            'sass-loader'
+          ],
+        })
+      },
     {
       test: /\.less$/,
       use: extractLess.extract({
