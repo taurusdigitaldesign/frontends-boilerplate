@@ -42,7 +42,7 @@ module.exports = {
     },
     ['dev', 'local'].indexOf(process.env.npm_lifecycle_event) > -1 ? {
       test: /\.scss$/,
-      loader: 'style-loader!css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]',
+      loader: 'style-loader!css-loader?importLoaders=1&modules&localIdentName=[local]__[name]-[hash:base64:8]!sass-loader',
     } : {
         test: /\.scss$/,
         use: extractSass.extract({
