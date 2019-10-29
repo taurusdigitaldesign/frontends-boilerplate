@@ -3,24 +3,50 @@ import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { observer } from 'mobx-react';
-import { Button } from 'antd';
+import intl from 'react-intl-universal';
+import { Provider, observer } from 'mobx-react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Login, Main } from '~/routes';
+import RootStore from '~/stores';
 import Store from './store';
+import './style.scss';
 
-import Style from './style.scss';
+const locales = {
+  zh_CN: require('~/.config/i18n/zh_CN.ts').default,
+  en_US: require('~/.config/i18n/en_US.ts').default
+};
 
 @observer
-class User extends React.Component {
+class App extends React.Component {
   store = new Store();
+
+  componentDidMount() {
+    const currentLocale = 'zh_CN';
+    intl
+      .init({
+        currentLocale,
+        locales
+      })
+      .then(() => {
+        this.store.setInit(true);
+      });
+  }
 
   render() {
     return (
-      <div className={Style.font}>
-        {this.store.logining}
-        <Button type="primary" onClick={this.store.test.bind(this)}>aaa</Button>
-      </div>
+      this.store.init && (
+        <Provider {...new RootStore()}>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/main" component={Main} />
+              <Redirect to="/login" />
+            </Switch>
+          </BrowserRouter>
+        </Provider>
+      )
     );
   }
 }
 
-render(<User />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));

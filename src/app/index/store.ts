@@ -1,12 +1,12 @@
 import { observable, action } from 'mobx';
 
 class Store {
-  @observable logining = 'aaa';
+  @observable init: boolean = false;
 
   @action
-  test = () => {
-    this.logining = 'bbb';
-  };
+  setInit = (value: boolean) => {
+      this.init = value;
+  }
 }
 
 export default Store;

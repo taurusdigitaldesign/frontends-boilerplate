@@ -1,3 +1,3 @@
-import Header from './Header';
+import InfoItem from './InfoItem';
 
-export { Header };
+export { InfoItem };
