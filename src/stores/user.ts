@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import { User } from '~/modals/user';
+import { User } from '~/models/user';
 
 class UserStore {
   @observable info: User = {
