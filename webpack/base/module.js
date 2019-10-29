@@ -6,11 +6,6 @@ module.exports = {
   rules: [
     {
       test: /\.tsx?$/,
-      loader: 'babel-loader',
-      include: dirs.src
-    },
-    {
-      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       use: 'happypack/loader?id=babel'
     },

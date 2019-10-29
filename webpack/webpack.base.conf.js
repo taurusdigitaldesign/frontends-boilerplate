@@ -8,7 +8,7 @@ module.exports = {
   entry: entries,
 
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '~': dirs.src
     }
