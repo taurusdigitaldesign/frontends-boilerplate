@@ -1,8 +1,8 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const HASH = `[chunkhash]`;
 
-// 创建多个实例
+// 创建多个实例，分别对Sass、Less进行编译
+// 一般情况下Less对变动机会更小，有利于浏览器缓存
 const extractSass = new ExtractTextPlugin(
   `css/bundle_sass.${HASH}.min.css`
 );

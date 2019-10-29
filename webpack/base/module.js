@@ -1,26 +1,12 @@
 const DefaltCSSPlugin = require('./css');
 const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const dirs = require('./dirs');
-const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
   rules: [
     {
-      enforce: 'pre',
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
-      options: {
-        getCustomTransformers: () => ({
-          before: [
-            tsImportPluginFactory({
-              libraryName: 'antd',
-              libraryDirectory: 'lib',
-              style: 'css'
-            })
-          ]
-        })
-      },
-      exclude: /node_modules/,
+      loader: 'babel-loader',
       include: dirs.src
     },
     {
@@ -67,7 +53,14 @@ module.exports = {
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      use: ['url-loader?limit=5000&name=images/[path]/[name].[ext]']
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 5000,
+          include: dirs.src,
+          name: 'images/[path]/[name].[ext]'
+        }
+      }]
     }
   ]
 };
