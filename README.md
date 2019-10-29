@@ -6,6 +6,7 @@
 ├─ .babelrc
 ├─ .eslintignore
 ├─ .eslintrc.js
+├─ .npmrc
 ├─ .prettierrc
 ├─ .stylelintrc
 ├─ jsconfig.json
@@ -40,17 +41,16 @@
     ├─ .public
     ├─ app
     │   └─ index 
-    │       ├─ tpl.ejs
+    │       ├─ index.ejs
     |       ├─ index.jsx
-    |       ├─ store.js
+    |       ├─ store.ts
     |       └─ style.scss
-    ├─ layouts
     ├─ routes
     ├─ components
     │   └─ menu 
     │       ├─ images  
-    │       ├─ index.jsx
-    │       ├─ store.js
+    │       ├─ index.tsx
+    │       ├─ store.ts
     |       └─ style.scss    
     ├─ stores
     └─ utils 
@@ -105,3 +105,9 @@
 * 整理npm script
 * 修复npm build时发生的错误
 * 多页面和单页面不再区分
+
+### V1.1.0
+
+* 升级Babel
+* 改善兼容性处理方案
+* 调整TypeScript用到的npm包
