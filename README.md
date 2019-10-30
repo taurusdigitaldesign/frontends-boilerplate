@@ -119,3 +119,4 @@
 * 升级Babel
 * 改善兼容性处理方案
 * 调整TypeScript用到的npm包
+* 增加了相对完整的项目Demo
