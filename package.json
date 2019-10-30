@@ -9,13 +9,19 @@
     "type": "git",
     "url": "https://gitee.com/pm_ziguang/frontends-boilerplate.git"
   },
-  "pre-commit": [
-    "lint"
-  ],
+  "lint-staged": {
+    "src/**/*.(ts|tsx|js)": [
+      "eslint",
+      "git add"
+    ],
+    "src/**/*.(css|scss|less)": [
+      "stylelint",
+      "git add"
+    ]
+  },
   "scripts": {
     "init": "npm install && npm run lib",
-    "lint": "node lint.js",
-    "lint:fix": "npm run lint --fix",
+    "precommit": "lint-staged",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
     "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
@@ -52,6 +58,7 @@
     "core-js": "3",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
+    "eslint-config-alloy": "^3.0.0",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.16.0",
@@ -59,6 +66,7 @@
     "file-loader": "^4.2.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
     "json-loader": "^0.5.7",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
