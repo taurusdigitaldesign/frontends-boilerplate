@@ -9,6 +9,11 @@
     "type": "git",
     "url": "https://gitee.com/pm_ziguang/frontends-boilerplate.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**/*.(ts|tsx|js)": [
       "eslint",
@@ -21,7 +26,6 @@
   },
   "scripts": {
     "init": "npm install && npm run lib",
-    "precommit": "lint-staged",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
     "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
@@ -70,6 +74,7 @@
     "json-loader": "^0.5.7",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "lint-staged": "^9.4.2",
     "node-sass": "^4.13.0",
     "pre-commit": "^1.2.2",
     "sass-loader": "^8.0.0",
