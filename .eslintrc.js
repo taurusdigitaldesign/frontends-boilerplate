@@ -4,6 +4,13 @@ module.exports = {
     'eslint-config-alloy/react',
     'eslint-config-alloy/typescript',
   ],
+  parserOptions: {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
   globals: {
     OnlySVG: true,
     monitor: true,
