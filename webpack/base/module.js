@@ -53,7 +53,7 @@ module.exports = {
         options: {
           limit: 5000,
           include: dirs.src,
-          name: 'images/[path]/[name].[ext]'
+          name: 'images/[path][name].[ext]'
         }
       }]
     }
