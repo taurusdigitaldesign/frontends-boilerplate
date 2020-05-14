@@ -1,6 +1,6 @@
 {
   "name": "frontends-boilerplate",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "前端开发脚手架",
   "author": "ZXFED",
   "license": "MIT",
@@ -9,23 +9,8 @@
     "type": "git",
     "url": "https://gitee.com/pm_ziguang/frontends-boilerplate.git"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.(ts|tsx|js)": [
-      "eslint",
-      "git add"
-    ],
-    "src/**/*.(css|scss|less)": [
-      "stylelint",
-      "git add"
-    ]
-  },
   "scripts": {
-    "init": "npm install && npm install husky -D && npm run lib",
+    "init": "npm install && npm run lib",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
     "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
@@ -71,18 +56,18 @@
     "file-loader": "^4.2.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.0.9",
+    "husky": "^4.2.5",
     "json-loader": "^0.5.7",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "lint-staged": "^9.4.2",
+    "lint-staged": "^10.2.2",
     "node-sass": "^4.13.0",
     "pre-commit": "^1.2.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^11.1.1",
     "stylelint-config-standard": "^19.0.0",
-    "typescript": "^3.6.4",
+    "typescript": "^3.8.3",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",
@@ -93,13 +78,13 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/runtime-corejs3": "^7.6.3",
-    "antd": "^3.24.3",
-    "axios": "^0.19.0",
-    "mobx": "^5.9.0",
-    "mobx-react": "^5.4.3",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-intl-universal": "^2.2.1",
-    "react-router-dom": "^5.1.2"
+    "antd": "^4.2.2",
+    "axios": "^0.19.2",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intl-universal": "^2.2.5",
+    "react-router-dom": "^5.2.0"
   }
 }
