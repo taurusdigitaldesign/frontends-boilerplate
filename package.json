@@ -10,7 +10,7 @@
     "url": "https://gitee.com/pm_ziguang/frontends-boilerplate.git"
   },
   "scripts": {
-    "init": "npm install && npm run lib",
+    "init": "npm install && npm install husky -D",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
     "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
