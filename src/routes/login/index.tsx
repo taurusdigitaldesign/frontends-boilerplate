@@ -29,10 +29,13 @@ class Login extends React.Component<IProps> {
   };
 
   onLogin = () => {
-    const res = this.store.login();
-    if (res) {
-      this.props.history.push('/main');
-    }
+    // const res = this.store.login();
+    // if (res) {
+    //   this.props.history.push('/main');
+    // }
+    const test = {};
+    console.log(test.name.name);
+    new Error('has a error');
   };
 
   render() {
