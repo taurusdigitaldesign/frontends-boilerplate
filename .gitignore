@@ -36,11 +36,8 @@ sftp-config.json
 node_modules/
 build/
 dist/
-dist/**/*
 docs/
 lib/
-vendor/vendor\.dll\.js
-vendor/vendor\.dll\.js\.map
 .vscode/
 .idea/
 .cache/
@@ -48,5 +45,3 @@ vendor/vendor\.dll\.js\.map
 package-lock.json
 yarn.lock
 yarn-error.log
-server.js
-# manifest\.json

@@ -8,8 +8,6 @@ const dirs = {
   config: path.resolve(root, './webpack'),
   // 源码目录
   src: path.resolve(root, './src'),
-  // 多页面目录
-  pages: path.resolve(root, './src/pages'),
   // 第三方库
   lib: path.resolve(root, './lib'),
   // 生成目录
