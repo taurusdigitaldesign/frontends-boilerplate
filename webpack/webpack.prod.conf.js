@@ -9,7 +9,6 @@ const base = require('./webpack.base.conf');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const dllManifestOfVendorFrame = require('../lib/frame.manifest.json');
@@ -46,28 +45,7 @@ const config = {
     filename: 'js/bundle_[name].[chunkhash].min.js',
   },
 
-  devtool: 'source-map',
-
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin({
-      test: /\.js(\?.*)?$/i,
-      parallel: true,
-      sourceMap: true,
-      terserOptions: {
-        output: {
-          beautify: false,
-          comments: false,
-        },
-        compress: {
-          warnings: false,
-          drop_console: true,
-          collapse_vars: true,
-          reduce_vars: true,
-        }
-      }
-    })],
-  },
+  devtool: false,
 
   plugins: plugins.concat([
     new HappyPack({
