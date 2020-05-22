@@ -11,7 +11,7 @@ module.exports = {
       use: 'happypack/loader?id=babel'
     },
     {
-      test: /\.(json|conf)$/,
+      test: /\.conf$/,
       include: dirs.src,
       loader: 'json-loader'
     },
