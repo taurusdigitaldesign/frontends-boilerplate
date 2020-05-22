@@ -1,32 +1,13 @@
 const os = require('os');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
-const { htmls } = require('./base/pages');
+const { pages } = require('./base/pages');
 const DefaltCSSPlugin = require('./base/css');
-const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const base = require('./webpack.base.conf');
+const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const HappyPack = require('happypack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const plugins = [];
-htmls.forEach(html => {
-  const config = {
-    chunks: [html.name],
-    chunksSortMode: 'manual',
-    template: html.template,
-    filename: `${html.name}.html`,
-    // favicon: path.resolve(dirs.src, 'favicon.ico'),
-    hash: false,
-    env: 'dev',
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true
-    },
-  };
-  plugins.push(new HtmlWebpackPlugin(config));
-});
-
+const plugins = [].concat(pages);
 const happyPackThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const config = {

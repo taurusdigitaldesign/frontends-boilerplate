@@ -59,7 +59,7 @@
     "husky": "^4.2.5",
     "json-loader": "^0.5.7",
     "less": "^3.10.3",
-    "less-loader": "^5.0.0",
+    "less-loader": "^6.0.0",
     "lint-staged": "^10.2.2",
     "node-sass": "^4.13.0",
     "pre-commit": "^1.2.2",

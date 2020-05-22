@@ -1,17 +1,18 @@
 const DefaltCSSPlugin = require('./css');
 const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
+const themes = require('../../src/.config/theme');
 const dirs = require('./dirs');
 
 module.exports = {
   rules: [
     {
       test: /\.tsx?$/,
-      exclude: /node_modules/,
+      include: dirs.src,
       use: 'happypack/loader?id=babel'
     },
     {
       test: /\.(json|conf)$/,
-      exclude: /node_modules/,
+      include: dirs.src,
       loader: 'json-loader'
     },
     {
@@ -43,19 +44,32 @@ module.exports = {
       test: /\.less$/,
       use: extractLess.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'less-loader?javascriptEnabled=true']
+        use: [
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: themes['custom'],
+                javascriptEnabled: true
+              }
+            }
+          }
+        ]
       })
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      use: [{
-        loader: 'url-loader',
-        options: {
-          limit: 5000,
-          include: dirs.src,
-          name: 'images/[path][name].[ext]'
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 5000,
+            include: dirs.src,
+            name: 'images/[path][name].[ext]'
+          }
         }
-      }]
+      ]
     }
   ]
 };

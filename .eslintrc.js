@@ -23,6 +23,7 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/prefer-for-of': 0,
-    '@typescript-eslint/no-inferrable-types': 0
+    '@typescript-eslint/no-inferrable-types': 0,
+    '@typescript-eslint/no-invalid-this': 0
   }
 };

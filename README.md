@@ -120,3 +120,12 @@
 * 改善兼容性处理方案
 * 调整TypeScript用到的npm包
 * 增加了相对完整的项目Demo
+
+### V1.2.0
+
+* antd升级为4.0
+* 优化Webpack打包配置
+* 修改prettier的格式化规则
+* 自定义antd的主题
+* 集成异常监控Sentry
+
