@@ -1,19 +1,15 @@
-const os = require('os');
 const path = require('path');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
-const DefaltCSSPlugin = require('./base/css');
-const { extractCSS, extractSass, extractLess } = DefaltCSSPlugin;
 const { pages } = require('./base/pages');
 const base = require('./webpack.base.conf');
-const HappyPack = require('happypack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const dllManifestOfVendorFrame = require('../lib/frame.manifest.json');
 
 const plugins = [].concat(pages);
-const happyPackThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const config = {
   ...base,
@@ -29,20 +25,7 @@ const config = {
   devtool: false,
 
   plugins: plugins.concat([
-    new HappyPack({
-      id: 'babel',
-      loaders: [
-        {
-          loader: 'babel-loader',
-          options: {
-            babelrc: true,
-            cacheDirectory: true,
-          },
-        },
-      ],
-      threadPool: happyPackThreadPool,
-      verbose: true,
-    }),
+    new MiniCssExtractPlugin(),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: dllManifestOfVendorFrame,
@@ -54,9 +37,6 @@ const config = {
       publicPath: '/js', // 绝对路径：'/js',
       outputPath: './js',
     }]),
-    extractCSS,
-    extractSass,
-    extractLess,
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',

@@ -5,8 +5,8 @@ class Store {
 
   @action
   setInit = (value: boolean) => {
-      this.init = value;
-  }
+    this.init = value;
+  };
 }
 
 export default Store;
