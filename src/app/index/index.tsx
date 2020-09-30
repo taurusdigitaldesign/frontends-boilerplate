@@ -8,6 +8,7 @@ import { Provider, observer } from 'mobx-react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Login, Main } from '~/routes';
 import RootStore from '~/stores';
+import generatorRouter from './generatorRouter'
 import Store from './store';
 import './style.scss';
 
@@ -38,8 +39,7 @@ class App extends React.Component {
         <Provider {...new RootStore()}>
           <BrowserRouter>
             <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/main" component={Main} />
+              { generatorRouter() }
               <Redirect to="/login" />
             </Switch>
           </BrowserRouter>
