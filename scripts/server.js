@@ -6,6 +6,16 @@ const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const { dirs } = require('./webpack/base');
 const config = require('./webpack/webpack.dev');
 
+const define = require(dirs.root + `/.greatrc.${process.env.RUN_ENV}`);
+config.plugins.push(
+  new webpack.DefinePlugin({
+    ...Object.entries(define).reduce(
+      (result, [key, value]) => ({ ...result, [key]: JSON.stringify(value) }),
+      {}
+    )
+  })
+);
+
 const PORT = '8080';
 const HOST = '0.0.0.0';
 
@@ -32,9 +42,10 @@ try {
     warnings: (warnings) => devServer.sockWrite(devServer.sockets, 'warnings', warnings),
     errors: (errors) => devServer.sockWrite(devServer.sockets, 'errors', errors)
   };
+
   const compiler = createCompiler({
     appName,
-    config, 
+    config,
     webpack,
     urls,
     devSocket

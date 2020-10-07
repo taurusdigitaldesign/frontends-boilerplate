@@ -11,7 +11,8 @@ module.exports = {
     OnlySVG: true,
     monitor: true,
     CanvasRender: true,
-    React: true
+    React: true,
+    API_HOST: true,
   },
   rules: {
     eqeqeq: 0,
