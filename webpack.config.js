@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, argv) => {
   const config =
@@ -7,23 +6,11 @@ module.exports = (env, argv) => {
       ? require('./scripts/webpack/webpack.dev')
       : require('./scripts/webpack/webpack.prod');
 
-  if (config && config.plugins && Array.isArray(config.plugins)) {
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.API_ENV': JSON.stringify(process.env.RUN_ENV)
-      })
-    );
-
-    if (argv && argv.anal) {
-      // --anal=1 输出包的体积分析
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerPort: 8088,
-          openAnalyzer: false
-        })
-      );
-    }
-  }
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env.RUN_ENV': JSON.stringify(process.env.RUN_ENV)
+    })
+  );
 
   return config;
 };

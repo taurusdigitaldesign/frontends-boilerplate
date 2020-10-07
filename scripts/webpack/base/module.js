@@ -39,5 +39,6 @@ const rules = [
 ];
 
 module.exports = {
+  strictExportPresence: true,
   rules: rules.concat(cssModule)
 };

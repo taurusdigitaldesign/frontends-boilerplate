@@ -1,5 +1,5 @@
 import envConfig from '../env.conf';
 
-const API_ENV = process.env.API_ENV;
-const currentEnvConfig = envConfig && envConfig[API_ENV] ? envConfig[API_ENV] : {};
+const RUN_ENV = process.env.RUN_ENV;
+const currentEnvConfig = envConfig && envConfig[RUN_ENV] ? envConfig[RUN_ENV] : {};
 export default currentEnvConfig;

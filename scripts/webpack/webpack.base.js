@@ -7,6 +7,7 @@ module.exports = {
   entry: entries,
 
   resolve: {
+    modules: [dirs.src, dirs.modules],
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '~': dirs.src,
@@ -14,11 +15,11 @@ module.exports = {
     }
   },
 
-  // externals: {
-  //   'react': 'React',
-  //   'react-dom': 'ReactDOM',
-  //   'react-router-dom': 'ReactRouterDOM',
-  // },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'react-router-dom': 'ReactRouterDOM',
+  },
 
   module: modules
 };

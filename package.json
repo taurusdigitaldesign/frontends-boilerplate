@@ -14,13 +14,14 @@
     "lib": "npm run clean:lib && webpack --config ./scripts/webpack/webpack.lib.js -p",
 
     "mock": "cross-env RUN_ENV=mock node ./scripts/server.js",
-    "dev": "cross-env RUN_ENV=dev webpack-dev-server",
-    "pro": "cross-env RUN_ENV=prod webpack-dev-server",
+    "dev": "cross-env RUN_ENV=dev node ./scripts/server.js",
+    "pro": "cross-env RUN_ENV=prod node ./scripts/server.js",
 
     "clean:dist": "rimraf ./dist",
-    "build:dev": "npm run clean:dist && cross-env RUN_ENV=dev webpack",
     "build": "npm run clean:dist && cross-env RUN_ENV=prod webpack",
-    "build:anal": "npm run clean:dist && webpack --anal=1"
+    "build:dev": "npm run clean:dist && cross-env RUN_ENV=dev webpack",
+    "build:cdn": "npm run clean:dist && cross-env RUN_ENV=prod CDN=1 webpack",
+    "build:anal": "npm run clean:dist && cross-env RUN_ENV=prod ANAL=1 webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -57,6 +58,8 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "lint-staged": "^10.4.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-safe-parser": "^5.0.2",
     "pre-commit": "^1.2.2",
     "react-dev-utils": "^10.2.1",
     "sass": "^1.26.11",
@@ -64,6 +67,7 @@
     "style-loader": "^1.2.1",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
+    "terser-webpack-plugin": "^4.2.2",
     "typescript": "^4.0.3",
     "url-loader": "^4.1.0",
     "webpack": "^4.41.2",
