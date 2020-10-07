@@ -1,13 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const dirs = require('./base/dirs');
-const { pages } = require('./base/pages');
-const basic = require('./basic');
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const dllManifestOfVendorFrame = require('../lib/frame.manifest.json');
+
+const basic = require('./webpack.base');
+const { dirs, pages } = require('./base');
+const dllManifestOfVendorFrame = require('../../lib/frame.manifest.json');
 
 const plugins = [].concat(pages);
 

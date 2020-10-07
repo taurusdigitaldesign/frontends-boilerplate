@@ -3,8 +3,8 @@ const WebpackDevServer = require('webpack-dev-server');
 const { createCompiler, prepareUrls } = require('react-dev-utils/WebpackDevServerUtils');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 
-const dirs = require('./webpack/base/dirs');
-const config = require('./webpack/dev');
+const { dirs } = require('./webpack/base');
+const config = require('./webpack/webpack.dev');
 
 const PORT = '8080';
 const HOST = '0.0.0.0';

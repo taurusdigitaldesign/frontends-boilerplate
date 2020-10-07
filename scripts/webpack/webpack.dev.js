@@ -1,8 +1,6 @@
-const os = require('os');
 const webpack = require('webpack');
-const dirs = require('./base/dirs');
-const { pages } = require('./base/pages');
-const basic = require('./basic');
+const basic = require('./webpack.base');
+const { dirs, pages } = require('./base');
 
 const plugins = [].concat(pages);
 
@@ -22,18 +20,6 @@ const config = {
   plugins: plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
   ]),
-
-  // devServer: {
-  //   hot: true,
-  //   inline: true,
-  //   overlay: {
-  //     warnings: true,
-  //     errors: true
-  //   },
-  //   // https: true,
-  //   historyApiFallback: true,
-  //   contentBase: dirs.dist
-  // },
 };
 
 module.exports = config;

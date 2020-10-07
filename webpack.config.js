@@ -4,8 +4,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = (env, argv) => {
   const config =
     process.env.RUN_ENV != 'prod'
-      ? require('./webpack/webpack.dev.conf')
-      : require('./webpack/webpack.prod.conf');
+      ? require('./scripts/webpack/webpack.dev')
+      : require('./scripts/webpack/webpack.prod');
 
   if (config && config.plugins && Array.isArray(config.plugins)) {
     config.plugins.push(

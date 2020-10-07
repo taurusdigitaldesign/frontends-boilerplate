@@ -1,7 +1,5 @@
 const path = require('path');
-const dirs = require('./base/dirs');
-const modules = require('./base/module');
-const { entries } = require('./base/pages');
+const { dirs, modules, entries } = require('./base');
 
 module.exports = {
   context: dirs.src,
@@ -15,6 +13,12 @@ module.exports = {
       '@assets': path.resolve(dirs.src, './.assets')
     }
   },
+
+  // externals: {
+  //   'react': 'React',
+  //   'react-dom': 'ReactDOM',
+  //   'react-router-dom': 'ReactRouterDOM',
+  // },
 
   module: modules
 };

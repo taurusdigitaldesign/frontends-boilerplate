@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean:lib": "rimraf ./lib",
-    "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
+    "lib": "npm run clean:lib && webpack --config ./scripts/webpack/webpack.lib.js -p",
 
     "mock": "cross-env RUN_ENV=mock node ./scripts/server.js",
     "dev": "cross-env RUN_ENV=dev webpack-dev-server",
@@ -76,6 +76,7 @@
     "@babel/runtime-corejs3": "^7.11.2",
     "antd": "^4.6.6",
     "axios": "^0.20.0",
+    "dayjs": "^1.9.1",
     "mobx": "^5.15.7",
     "mobx-react-lite": "^2.2.2",
     "react": "^16.13.1",

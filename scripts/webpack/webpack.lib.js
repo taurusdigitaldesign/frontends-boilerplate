@@ -9,23 +9,24 @@ module.exports = {
 
   entry: {
     frame: [
-      'react',
-      'react-dom',
-      'react-router',
-      'react-router-dom',
+      'axios',
+      'dayjs',
       'mobx',
       'mobx-react-lite',
+      // 'react',
+      // 'react-dom',
+      // 'react-router-dom',
     ],
-    ui: [
-      'antd',
-    ],
+    // ui: [
+    //   'antd',
+    // ],
   },
 
   output: {
-    library: '[name]_[chunkhash]',
+    library: '[name]_[chunkhash:8]',
     path: dirs.lib,
     publicPath: '/',
-    filename: '[name].[chunkhash].dll.js',
+    filename: '[name].[chunkhash:8].dll.js',
   },
 
   plugins: [
