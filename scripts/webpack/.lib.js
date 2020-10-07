@@ -14,14 +14,12 @@ module.exports = {
       'react-router',
       'react-router-dom',
       'mobx',
-      'mobx-react',
+      'mobx-react-lite',
     ],
     ui: [
       'antd',
     ],
   },
-
-  // devtool: '#source-map',
 
   output: {
     library: '[name]_[chunkhash]',
@@ -32,12 +30,9 @@ module.exports = {
 
   plugins: [
     new webpack.DllPlugin({
-      name: '[name]_[chunkhash]',
+      name: '[name]_[chunkhash:8]',
       // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
       path: path.resolve(dirs.lib, './[name].manifest.json')
-    }),
-    new webpack.BannerPlugin(
-      `This file is created by Super Browser, Last update: ${new Date().toString()}`
-    )
+    })
   ]
 };

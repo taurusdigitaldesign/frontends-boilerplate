@@ -4,7 +4,9 @@ const glob = require('glob');
 const dirs = require('./dirs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// 压缩、混淆、去掉console等
+const isDev = process.env.RUN_ENV !== 'prod';
+
+// 压缩、混淆、去掉日志
 const minifyOptions =
   process.env.RUN_ENV !== 'prod'
     ? {}
@@ -27,12 +29,19 @@ const pages = [];
 glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach(item => {
   const name = item.match(/([\w-]+)(?=\/index.tsx)/)[1];
 
+  // 选择模板
   let template = path.resolve(dirs.src, `./pages/${name}/index.ejs`);
   if (!fs.existsSync(template)) {
     template = path.resolve(dirs.src, `./pages/common.ejs`);
   }
 
-  entries[name] = item;
+  // 载入热更新
+  entries[name] = [
+    isDev && require.resolve('react-dev-utils/webpackHotDevClient'),
+    item
+  ].filter(Boolean);
+
+  // 配置
   pages.push(
     new HtmlWebpackPlugin({
       inject: true,

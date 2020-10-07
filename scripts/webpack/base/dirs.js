@@ -1,5 +1,5 @@
 const path = require('path');
-const root = path.resolve(__dirname, '../../');
+const root = path.resolve(__dirname, '../../../');
 
 const dirs = {
   // 根目录
@@ -13,7 +13,9 @@ const dirs = {
   // 输出目录
   dist: path.resolve(root, './dist'),
   // modules
-  modules: path.resolve(root, './node_modules')
+  modules: path.resolve(root, './node_modules'),
+  // package
+  package: path.resolve(root, './package.json')
 };
 
 module.exports = dirs;

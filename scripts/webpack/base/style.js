@@ -1,4 +1,4 @@
-const themes = require('../../src/.config/theme');
+const themes = require('../../../src/themes/default');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDev = process.env.RUN_ENV !== 'prod';

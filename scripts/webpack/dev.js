@@ -2,12 +2,12 @@ const os = require('os');
 const webpack = require('webpack');
 const dirs = require('./base/dirs');
 const { pages } = require('./base/pages');
-const base = require('./webpack.base.conf');
+const basic = require('./basic');
 
 const plugins = [].concat(pages);
 
 const config = {
-  ...base,
+  ...basic,
 
   mode: 'development',
 
@@ -23,17 +23,17 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
   ]),
 
-  devServer: {
-    hot: true,
-    inline: true,
-    overlay: {
-      warnings: true,
-      errors: true
-    },
-    // https: true,
-    historyApiFallback: true,
-    contentBase: dirs.dist
-  },
+  // devServer: {
+  //   hot: true,
+  //   inline: true,
+  //   overlay: {
+  //     warnings: true,
+  //     errors: true
+  //   },
+  //   // https: true,
+  //   historyApiFallback: true,
+  //   contentBase: dirs.dist
+  // },
 };
 
 module.exports = config;

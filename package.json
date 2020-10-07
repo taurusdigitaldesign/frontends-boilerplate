@@ -11,18 +11,16 @@
   },
   "scripts": {
     "clean:lib": "rimraf ./lib",
-    "clean:dist": "rimraf ./dist",
     "lib": "webpack --progress --config ./webpack/webpack.lib.conf.js -p",
-    "mock": "webpack-dev-server --env=mock",
-    "dev": "webpack-dev-server --env=dev",
-    "pro": "webpack-dev-server --env=prod",
-    "build:dev": "npm run clean:dist && webpack --env=dev",
-    "build": "npm run clean:dist && webpack --env=prod",
-    "build:anal": "npm run clean:dist && webpack --anal=1",
 
+    "mock": "cross-env RUN_ENV=mock node ./scripts/server.js",
+    "dev": "cross-env RUN_ENV=dev webpack-dev-server",
+    "pro": "cross-env RUN_ENV=prod webpack-dev-server",
 
-    "mock1": "cross-env RUN_ENV=mock webpack-dev-server",
-    "build1": "npm run clean:dist && cross-env RUN_ENV=prod webpack"
+    "clean:dist": "rimraf ./dist",
+    "build:dev": "npm run clean:dist && cross-env RUN_ENV=dev webpack",
+    "build": "npm run clean:dist && cross-env RUN_ENV=prod webpack",
+    "build:anal": "npm run clean:dist && webpack --anal=1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -60,6 +58,7 @@
     "less-loader": "^7.0.1",
     "lint-staged": "^10.4.0",
     "pre-commit": "^1.2.2",
+    "react-dev-utils": "^10.2.1",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",

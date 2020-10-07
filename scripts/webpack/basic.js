@@ -1,7 +1,7 @@
 const path = require('path');
 const dirs = require('./base/dirs');
-const { entries } = require('./base/pages');
 const modules = require('./base/module');
+const { entries } = require('./base/pages');
 
 module.exports = {
   context: dirs.src,
