@@ -1,7 +1,7 @@
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const safePostCssParser = require('postcss-safe-parser');
+const SafePostCssParser = require('postcss-safe-parser');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -76,7 +76,7 @@ const config = {
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
-          parse: safePostCssParser,
+          parse: SafePostCssParser,
           // eslint-disable-next-line indent
           map: false,
           cssProcessorPluginOptions: {
