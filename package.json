@@ -10,9 +10,6 @@
     "url": "https://gitee.com/pm_ziguang/frontends-boilerplate.git"
   },
   "scripts": {
-    "clean:lib": "rimraf ./lib",
-    "lib": "npm run clean:lib && webpack --config ./scripts/webpack/webpack.lib.js -p",
-
     "mock": "cross-env RUN_ENV=mock node ./scripts/server.js",
     "dev": "cross-env RUN_ENV=dev node ./scripts/server.js",
     "pro": "cross-env RUN_ENV=prod node ./scripts/server.js",

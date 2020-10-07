@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-module.exports = (env, argv) => {
+module.exports = () => {
   const config =
     process.env.RUN_ENV != 'prod'
       ? require('./scripts/webpack/webpack.dev')
