@@ -15,10 +15,10 @@
     "pro": "cross-env RUN_ENV=prod node ./scripts/server.js",
     "clean:dist": "rimraf ./dist",
     "generate:router": "node ./scripts/route.js",
-    "build": "npm run clean:dist && cross-env RUN_ENV=prod webpack",
-    "build:dev": "npm run clean:dist && cross-env RUN_ENV=dev webpack",
-    "build:cdn": "npm run clean:dist && cross-env RUN_ENV=prod CDN=1 webpack",
-    "build:anal": "npm run clean:dist && cross-env RUN_ENV=prod ANAL=1 webpack"
+    "build": "npm run clean:dist && cross-env RUN_ENV=prod node ./scripts/build.js",
+    "build:dev": "npm run clean:dist && cross-env RUN_ENV=dev node ./scripts/build.js",
+    "build:cdn": "npm run clean:dist && cross-env RUN_ENV=prod CDN=1 node ./scripts/build.js",
+    "build:anal": "npm run clean:dist && cross-env RUN_ENV=prod ANAL=1 node ./scripts/build.js"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
