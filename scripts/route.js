@@ -109,7 +109,7 @@ const getRoutes = (files, relDir, result) => {
     } else {
       result.push({
         name: file,
-        path: winPath(absFile).replace('src/routes','').replace('/index.tsx', ''),
+        path: winPath(absFile).replace('src/pages','').replace('/index.tsx', ''),
         component: winPath(absFile).replace('src/', '')
       })
     }
@@ -125,7 +125,7 @@ const getRoutes = (files, relDir, result) => {
 
   const dirRoot = './'
   const routerConfigPath = 'src/routes/config.js'
-  const routerIndexPath = 'src/routes/index.js'
+  const routerIndexPath = 'src/routes/index.tsx'
   const folders = routerConfigPath.split('/').slice(0, -1)
   folders.reduce((acc, folder) => {
     const folderPath = acc + folder + '/'
