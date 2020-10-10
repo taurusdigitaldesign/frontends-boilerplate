@@ -12,7 +12,6 @@ module.exports = {
     monitor: true,
     CanvasRender: true,
     React: true,
-    API_HOST: true,
   },
   rules: {
     eqeqeq: 0,
