@@ -26,7 +26,7 @@ const minifyOptions =
 const entries = {};
 const pages = [];
 
-glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach(item => {
+glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach((item) => {
   const name = item.match(/([\w-]+)(?=\/index.tsx)/)[1];
 
   // 选择模板
@@ -36,10 +36,9 @@ glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach(item => {
   }
 
   // 载入热更新
-  entries[name] = [
-    isDev && require.resolve('react-dev-utils/webpackHotDevClient'),
-    item
-  ].filter(Boolean);
+  entries[name] = [isDev && require.resolve('react-dev-utils/webpackHotDevClient'), item].filter(
+    Boolean
+  );
 
   // 配置
   pages.push(
@@ -48,7 +47,7 @@ glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach(item => {
       chunks: [name],
       template: template,
       filename: `${name}.html`,
-      favicon: path.resolve(dirs.src, './.assets/images/favicon.ico'),
+      favicon: path.resolve(dirs.src, './assets/images/favicon.ico'),
       minify: minifyOptions
     })
   );
