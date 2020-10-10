@@ -35,7 +35,14 @@ const rules = [
         }
       }
     ]
-  }
+  },
+  {
+    test: /\.ejs$/,
+    loader: 'ejs-loader',
+    options: {
+      esModule: false
+    }
+  },
 ];
 
 module.exports = {
