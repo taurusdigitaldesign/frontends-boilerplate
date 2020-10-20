@@ -11,7 +11,8 @@ module.exports = {
     OnlySVG: true,
     monitor: true,
     CanvasRender: true,
-    React: true
+    React: true,
+    API_HOST: true,
   },
   rules: {
     eqeqeq: 0,
@@ -24,6 +25,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/prefer-for-of': 0,
     '@typescript-eslint/no-inferrable-types': 0,
-    '@typescript-eslint/no-invalid-this': 0
+    '@typescript-eslint/no-invalid-this': 0,
+    '@typescript-eslint/no-require-imports': 0,
   }
 };

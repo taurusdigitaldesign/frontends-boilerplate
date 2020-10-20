@@ -73,3 +73,12 @@
 * 自定义antd的主题
 * 集成异常监控Sentry
 
+### V1.3.0
+
+* 升级npm包
+* node-sass 改为 dart-sass
+* 约定路由写法
+* 全新的npm script
+* 优化构建的性能
+* 配置CDN加速
+* 增加define变量功能

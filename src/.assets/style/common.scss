@@ -1,8 +1,0 @@
-// 宽度
-$body-min-width: 1260px;
-$box-safe-width: 1200px;
-
-@mixin safeWidth() {
-  width: $box-safe-width;
-  margin: 0 auto;
-}
