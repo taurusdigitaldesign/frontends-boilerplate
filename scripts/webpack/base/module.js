@@ -18,12 +18,6 @@ const rules = [
     ],
   },
   {
-    test: /\.(json|conf)$/,
-    include: dirs.src,
-    exclude: /node_modules/,
-    loader: 'json-loader'
-  },
-  {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
     use: [
       {
@@ -42,6 +36,12 @@ const rules = [
     options: {
       esModule: false
     }
+  },
+  {
+    test: /\.(json|conf)$/,
+    include: dirs.src,
+    exclude: /node_modules/,
+    loader: 'json-loader'
   },
 ];
 

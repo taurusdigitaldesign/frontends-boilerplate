@@ -3,12 +3,16 @@ import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import { render } from 'react-dom';
-import Style from './style.scss';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Routes from '../../routes';
+
 
 const App = () => (
-  <div className={Style.box}>
-    Hello world<div>{API_HOST}</div>
-  </div>
+  <BrowserRouter>
+    <Switch>
+      <Routes />
+    </Switch>
+  </BrowserRouter>
 );
 
 render(<App />, document.getElementById('root'));

@@ -1,6 +1,8 @@
 dist
+docs
 lib
+public
+scripts
 node_modules
-webpack
 
 *.d.ts

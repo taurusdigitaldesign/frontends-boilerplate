@@ -47,7 +47,7 @@ glob.sync(path.resolve(dirs.src, './pages/*/index.tsx')).forEach((item) => {
       chunks: [name],
       template: template,
       filename: `${name}.html`,
-      favicon: path.resolve(dirs.src, './public/favicon.ico'),
+      favicon: path.resolve(dirs.root, './public/favicon.ico'),
       minify: minifyOptions
     })
   );

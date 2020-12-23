@@ -30,20 +30,20 @@ module.exports = [
       }
     ]
   },
-  {
-    test: /\.less$/,
-    use: [
-      loader,
-      'css-loader',
-      {
-        loader: 'less-loader',
-        options: {
-          lessOptions: {
-            modifyVars: themes['custom'],
-            javascriptEnabled: true
-          }
-        }
-      }
-    ]
-  }
+  // {
+  //   test: /\.less$/,
+  //   use: [
+  //     loader,
+  //     'css-loader',
+  //     {
+  //       loader: 'less-loader',
+  //       options: {
+  //         lessOptions: {
+  //           modifyVars: themes['custom'],
+  //           javascriptEnabled: true
+  //         }
+  //       }
+  //     }
+  //   ]
+  // }
 ];

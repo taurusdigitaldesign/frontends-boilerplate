@@ -1,5 +1,4 @@
 const path = require('path');
-// const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const SafePostCssParser = require('postcss-safe-parser');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -104,9 +103,6 @@ const config = {
           analyzerPort: 8088,
           openAnalyzer: false
         })
-      // new CopyPlugin({
-      //   patterns: [{ from: path.resolve(dirs.src, '.public/'), to: 'static/' }]
-      // })
     ].filter(Boolean)
   )
 };

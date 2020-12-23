@@ -43,5 +43,5 @@ lib/
 .cache/
 *.DS_Store
 package-lock.json
-yarn.lock
 yarn-error.log
+yarn.lock
